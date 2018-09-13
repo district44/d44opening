@@ -31,13 +31,13 @@
         parallax();
         /* -------------------
         Header Animation
-        ---------------------*/
+        ---------------------
         if ($(this).scrollTop() > 5){
             $('nav').addClass("navbar-small")
         }
         else{
             $('nav').removeClass("navbar-small")
-        }
+        }*/
         /* -------------------
         Back to top button popup
         ---------------------*/
