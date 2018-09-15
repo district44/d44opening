@@ -203,6 +203,36 @@
         setTimeout(done, 500)
     }
 
+    /** HANDLE TOP-VIDEO PAUSE/PLAY */
+    var video = document.getElementById('top-video')
+    var navBar = document.getElementById('nav-bar')
+    var isPlaying = true
+    var handleOnScrollVideoPlaying = function () {
+        var videoRect = video.getBoundingClientRect()
+        if (navBar) {
+            var navBarRect = navBar.getBoundingClientRect()
+        }
+        var ratioInView
+        if (navBar && window.getComputedStyle(navBar).opacity !== "0") {
+            ratioInView = (videoRect.bottom - navBarRect.height) / videoRect.height
+        } else {
+            ratioInView = videoRect.bottom / videoRect.height
+        }
+        if (isPlaying && ratioInView < 0.25) {
+            video.pause()
+            isPlaying = false
+        } else if (!isPlaying && ratioInView >= 0.25) {
+            video.play()
+            isPlaying = true
+        }
+    }
+    if (video) {
+        window.addEventListener('scroll', handleOnScrollVideoPlaying)
+        window.addEventListener('touchstart', handleOnScrollVideoPlaying)
+        window.addEventListener('touchmove', handleOnScrollVideoPlaying)
+        window.addEventListener('touchend', handleOnScrollVideoPlaying)
+    }
+
     /* LA SALLE PHOTO */
     if ($(window).width() < $(window).height()) {
         $('#lasalle_photo').addClass('mobile')
