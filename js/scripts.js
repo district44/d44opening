@@ -235,7 +235,6 @@
         window.addEventListener('touchstart', handleOnScrollVideoPlaying)
         window.addEventListener('touchmove', handleOnScrollVideoPlaying)
         window.addEventListener('touchend', handleOnScrollVideoPlaying)
-        video.play()
     }
 
     /* LA SALLE PHOTO */
