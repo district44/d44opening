@@ -200,6 +200,10 @@
             e.style = ""
         })
         $('#loader, .spinner').css('display', 'block')
+        $('.g-recaptcha').html('')
+        $('script[src*="gstatic.com/recaptcha"]').remove()
+        $('script[src*="google-analytics.com/analytics.js"]').remove()
+        $('.g-recaptcha-bubble-arrow').parent().remove()
         setTimeout(done, 500)
     }
 
@@ -231,6 +235,7 @@
         window.addEventListener('touchstart', handleOnScrollVideoPlaying)
         window.addEventListener('touchmove', handleOnScrollVideoPlaying)
         window.addEventListener('touchend', handleOnScrollVideoPlaying)
+        video.play()
     }
 
     /* LA SALLE PHOTO */
